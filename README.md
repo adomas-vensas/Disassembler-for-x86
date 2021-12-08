@@ -29,8 +29,7 @@ Most of the tools needed to start the program are in the 'x86Disasm' folder:
 <ol>
   <li>Unzip the 'x86Disasm.zip'</li>
     <li>Open DOSBOX.</li>
-    <li>Write - mount C '?':\directory_path<br>
-        '?' - the disk in which the 'x86Disasm' folder was saved.</li>
+    <li>Write - 'mount c ' and directory of the 'x86Disasm' folder</li>
     <li>After successful mount, type 'C:'</li>
     <li>Write 'debug' and press ENTER. You will start the debugger.</li>
 </ol>
@@ -42,6 +41,7 @@ Most of the tools needed to start the program are in the 'x86Disasm' folder:
   <li>Afte successful mount, type DEBUG in DOSBOX and press ENTER. You will start the debugger.</li>
 </ol>
 A short video on how to write instructions in DEBUG and make a .COM file:<br>
+https://www.youtube.com/watch?v=ZNPPpSL8Teo<br>
 
 <h3> Supported instructions </h3>
 All instructions from the 'instr86.pdf' file.<br>
