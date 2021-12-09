@@ -17,7 +17,7 @@ The program disassembles .COM file's instructions and returns their assembly lan
 <h3>Tools</h3>
 Most of the tools needed to start the program are in the 'x86Disasm' folder:
 <ul>
-  <li>DOSBOX emulator: https://www.dosbox.com/download.php?main=1 (to emulate the x86 processor's environment)</li>
+  <li>DOSBOX emulator: https://www.dosbox.com/download.php?main=1 (emulate 8086 processor's environment)</li>
   <li>YASM.exe and CWSDPMI.exe (to compile .COM file)</li>
   <li>DEBUG.com program (to access the processor and write instructions)</li>
   <li>DISASM.asm file (the disassembler's code file)</li>
@@ -29,7 +29,7 @@ Most of the tools needed to start the program are in the 'x86Disasm' folder:
 <ol>
   <li>Unzip the 'x86Disasm.zip'</li>
     <li>Open DOSBOX.</li>
-    <li>Write - 'mount c ' and directory of the 'x86Disasm' folder</li>
+    <li>Write 'mount c ' and directory of the 'x86Disasm' folder</li>
     <li>After successful mount, type 'C:'</li>
     <li>Write 'debug' and press ENTER. You will start the debugger.</li>
 </ol>
