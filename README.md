@@ -40,8 +40,8 @@ Most of the tools needed to start the program are in the 'x86Disasm' folder:
   <li>In the command-line write: '. dosbox'</li>
   <li>Afte successful mount, type DEBUG in DOSBOX and press ENTER. You will start the debugger.</li>
 </ol>
-A short video on how to write instructions in DEBUG and make a .COM file:<br>
-https://www.youtube.com/watch?v=ZNPPpSL8Teo<br>
+<strong>Note: </strong>Compiled instruction files must be written without '.COM' extension when starting them in disassembler.<br>
+A short video on how to write instructions in DEBUG and make a .COM file: https://www.youtube.com/watch?v=ZNPPpSL8Teo<br>
 
 <h3> Supported instructions </h3>
 All instructions from the 'instr86.pdf' file.<br>
