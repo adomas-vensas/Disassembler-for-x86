@@ -27,20 +27,20 @@ Most of the tools needed to start the program are in the 'x86Disasm' folder:
 
 <strong>ON WINDOWS:</strong>
 <ol>
-  <li>Unzip the 'x86Disasm.zip'</li>
-    <li>Open DOSBOX.</li>
+    <li>Unzip the 'x86Disasm.zip'</li>
+    <li>Open DOSBOX</li>
     <li>Write 'mount c ' and directory of the 'x86Disasm' folder</li>
     <li>After successful mount, type 'C:'</li>
-    <li>Write 'debug' and press ENTER. You will start the debugger.</li>
+    <li>Write 'debug' and press ENTER. You will start the debugger</li>
 </ol>
 <strong>ON LINUX:</strong>
 <ol>
   <li>Unzip the 'x86Disasm.zip'</li>
-  <li>Right-click the unzipped folder and run it in the console.</li>
+  <li>Right-click the unzipped folder and run it in the console</li>
   <li>In the command-line write: '. dosbox'</li>
-  <li>Afte successful mount, type DEBUG in DOSBOX and press ENTER. You will start the debugger.</li>
+  <li>Afte successful mount, type DEBUG in DOSBOX and press ENTER. You will start the debugger</li>
 </ol>
-<strong>Note: </strong>Compiled instruction files must be written without '.COM' extension when starting them in disassembler.<br>
+<strong>Note:</strong> Compiled instruction files must be written without '.COM' extension when starting them in disassembler.<br>
 A short video on how to write instructions in DEBUG and make a .COM file: https://www.youtube.com/watch?v=ZNPPpSL8Teo<br>
 
 <h3> Supported instructions </h3>
