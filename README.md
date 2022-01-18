@@ -9,7 +9,7 @@ This is a disassembler for the Intel 8086/8088 processor. Newer processors are n
 
 The program disassembles .COM file's instructions and returns their assembly language equivalents. If no corresponding instructions were found, the disassembler prints out 'DB xx' (xx - byte).<br>
 
-A barebones template was provided by Computer Architecture professor Irus Grinis from Vilnius University. Template included a few one byte instructions, procedures to open and close file and a procedure to read COM file's name without extension.
+A barebones template was provided by Computer Architecture professor Irus Grinis from Vilnius University. Template included a few one byte instructions, procedures to open and close file and a procedure to read .COM file's name without extension.
 
 <strong>Note</strong>:
 <ul>
