@@ -7,7 +7,9 @@ CONTACTS: adomasve@gmail.com<br>
 
 This is a disassembler for the Intel 8086/8088 processor. Newer processors are not supported, neither the instructions of the Intel 8087 coprocessor. The program was originally made on YASM and was not tested with other compilers.<br>
 
-The program disassembles .COM file's instructions and returns their assembly language equivalents. If no corresponding instructions were found, the disassembler prints out 'DB xx' (xx - byte).
+The program disassembles .COM file's instructions and returns their assembly language equivalents. If no corresponding instructions were found, the disassembler prints out 'DB xx' (xx - byte).<br>
+
+A barebones template was provided by Computer Architecture professor Irus Grinis. Template included a few one byte instructions, procedures to input and output instructions 
 
 <strong>Note</strong>:
 <ul>
