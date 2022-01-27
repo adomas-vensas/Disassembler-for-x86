@@ -2,7 +2,7 @@
 ; Open the file and rewrite its contents according to the plan of disassembler
 
 ;<<<<<<<<<<< 1. MACROS >>>>>>>>>>>>>;
-%macro writeln 1										;outputs a string to stdout
+%macro writeln 1									;outputs a string to stdout
           push ax
           push dx
           mov ah, 09
@@ -13,11 +13,11 @@
 		  
 %endmacro
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-%macro crlf 0												;outputs CR and NL to stdout
+%macro crlf 0										;outputs CR and NL to stdout
 		push ax
 		push dx
 		mov ah, 09
-		mov dx, naujaEilute
+		mov dx, newLine
 		int 21h
 		pop dx
 		pop ax
@@ -33,7 +33,7 @@
 		int 0x21
 		jc %%setEnd
 		cmp ax, 0x00
-        jne %%continue
+        	jne %%continue
 		
 		%%setEnd
 		stc
@@ -56,19 +56,19 @@ main:
    ; At start DS and ES point to PSP
    ; PSP + 0x80 => command line argument length (without extension)
 
-   call readComArgument								;get file name and add '.com' to it
+   call readComArgument										;get file name and add '.com' to it
    jnc .openFile												
    writeln errorReadingArgument
    jmp .cont
    
    .openFile:
    mov dx, comLineArgument      
-   call openFile												;open input file
+   call openFile										;open input file
    jnc .readFile
    writeln errorOpeningFile
    jmp .cont
 
-   .readFile:														;read from file
+   .readFile:											;read from file
    mov bx, [currentFile]          
    mov dx, takenArgument          
    call readFile
@@ -77,7 +77,7 @@ main:
 
    .end:
    mov bx, [currentFile]          
-   call closeFile												;close file
+   call closeFile										;close file
    .cont:
    mov ah, 0x4C											;end program
    int 0x21
@@ -705,7 +705,7 @@ readFile:
 		 jmp .end
 		 
 		 ;-------------------------------END OF RET---------------------------------------------------
-		 ;-------------------------------INT-----------------------------------------------------------------
+		 ;-------------------------------START OF INT-----------------------------------------------------------------
 		 .maybeINT
 		 cmp al, 0xCD
 		 jne .maybeJMPdirect
@@ -716,7 +716,7 @@ readFile:
 		 crlf
 		 jmp .end
 		 
-		 ;-------------------------------INT-------------------------------------------------------------------
+		 ;-------------------------------END OF INT-------------------------------------------------------------------
 		 ;<<<<<<<<<<< 4. READ FILE. UNCON JUMP REDIRECTION>>>>>>>>>>>>>;
 		 ;-------------------------------START OF UNCONDITIONAL JUMP-------------------
 		 
@@ -742,7 +742,7 @@ readFile:
 		 writeln strJMP
 		 readNext 2
 		 mov [savedWord], ax		;save IP
-		 readNext 2						;get CS
+		 readNext 2			;get CS
 		 call putHexStr
 		 writeln colon
 		 mov ax, [savedWord]
@@ -750,7 +750,7 @@ readFile:
 		 crlf
 		 jmp .end
 		 
-		 .maybeJMPindirectWithSeg								;<- naudoju ir indirect jumpam. Iš principo tas pats, bet gali būt error'u vėliau 
+		 .maybeJMPindirectWithSeg								 
 		 cmp al, 0xFE
 		 jb .maybeCALLdirectWithSeg
 		 mov W, 0x01
@@ -830,7 +830,7 @@ readFile:
 		 writeln strCALL
 		 readNext 2
 		 mov [savedWord], ax		;save IP
-		 readNext 2						;get CS
+		 readNext 2			;get CS
 		 call putHexStr
 		 writeln colon
 		 mov ax, [savedWord]
@@ -1158,7 +1158,7 @@ readFile:
 		 call getAddressByteInfo
 		 push di
 		 push cx
-	     mov al, REG
+	     	 mov al, REG
 		 mov cl, 0x08
 		 mul cl
 		 mov ah, 0
@@ -1704,7 +1704,7 @@ readFile:
 	 	 jne .maybeE5
 		 writeln strIN
 		 writeln [halfRegisters]
-	     writeln comma
+	     	 writeln comma
 		 readNext 1
 		 mov ah, 0
 		 call putHexStr
@@ -2036,7 +2036,7 @@ readFile:
 		 jmp .end
 		 
 		 ;-------------------------------END OF MOV---------------------------------------------------------
-		 ;-------------------------------END OF ORIGINAL x8086 INSTRUCTIONS--------------
+		 ;-------------------------------END OF ORIGINAL x8086 INSTRUCTIONS---------------------------------
 		 
          ;......
 		 
@@ -3062,7 +3062,7 @@ section .data
 		dq regAL, regCL, regDL, regBL, regAH, regCH, regDH, regBH
 	fullAddress:
 		dq comboBX_SI, comboBX_DI, comboBP_SI, comboBP_DI, comboSI, comboDI, comboBP, comboBX
-    segments:
+    	segments:
 		dq segES, segCS, segSS, segDS
 	
 	strWPTR:
@@ -3071,26 +3071,26 @@ section .data
 		db 'BYTE PTR $'
 	strFAR
 		db 'FAR $'
-    strDB:
+    	strDB:
 		db '      DB   ' 
-    takenArgument:
+    	takenArgument:
 		db 00, 00, 'h$'
 	
 	errorOpeningFile:
 		db 'Error opening file $'
 	errorReadingFile:
 		db 'Error reading file $'
-    errorReadingArgument:
+    	errorReadingArgument:
 		db 'Error reading argument $'
 
-    naujaEilute:   
+    	newLine:   
 		db 0x0D, 0x0A, '$'  ; NL and CR
-    comLineLength:
+    	comLineLength:
 		db 00
-    comLineArgument:
+    	comLineArgument:
 		times 255 db 00
 		
-    currentFile:
+    	currentFile:
 		dw 0FFFh
 	savedWord:
 		dw 00
